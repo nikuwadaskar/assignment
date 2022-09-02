@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>assignment</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        background-color: #051376;
+        color: white;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .wrong-type {
+        background-image: url("https://humornama.com/wp-content/uploads/2020/11/Tauba-Tauba-Sara-Mood-Kharab-Kar-Diya-meme-template-of-Moin-Akhtar-1024x704.jpg");
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      input#input {
+        width: 32%;
+        height: 7%;
+        color: #051376;
+        font-size: xx-large;
+        border: 9px groove #ce8952;
+        border-radius: 0px 20px 0px 20px;
+      }
+      input#input:focus {
+        border: 9px groove #a9bfbf;
+        outline: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <input
+        id="input"
+        type="number"
+        onchange="getValue()"
+        placeholder="Please Enter Number"
+      />
+      <p id="text"></p>
+    </div>
+    <script>
+      function getValue() {
+        let value = document.getElementById("input").value;
+        console.log(value);
+        if (value < 0) {
+          document.getElementById("text").innerHTML =
+            "<h1>Please Enter Positive Value😘</h1>";
+          document.getElementById("parent").setAttribute("class", "wrong-type");
+        } else if ((value & 1) != 1) {
+          valueone = Number(value);
+          document.getElementById("text").innerHTML = `<h1>EVEN:- ${
+            valueone + 2
+          }, ${valueone + 4}, ${valueone + 6}.</h1>`;
+          document.getElementById("parent").setAttribute("class", "");
+        } else if ((value & 1) === 1) {
+          valueone = Number(value);
+          document.getElementById("text").innerHTML = `<h1>ODD:- ${
+            valueone + 2
+          }, ${valueone + 4}, ${valueone + 6}.</h1>`;
+          document.getElementById("parent").setAttribute("class", "");
+        }
+      }
+    </script>
+  </body>
+</html>
